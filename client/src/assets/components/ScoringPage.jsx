@@ -9,7 +9,6 @@ function ScoringPage(){
   const [teamList, setTeamList] = useState(["Team 1", "Team 2"]);
   const [selectedTeam, setSelectedTeam] = useState("invalid");
   const [selectedRing, setSelectedRing] = useState(-1);
-  const [score, setScore] = useState(0);
 
   useEffect(() => {
     // Fetch teams from the backend

@@ -1,44 +1,46 @@
 from flask import Flask, request, jsonify
 from pymongo import MongoClient
-from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 from flask_cors import CORS
+from collections import Counter
+import numpy as np
 
 app = Flask(__name__)
-CORS(app)
+
+# CORS configuration
+CORS(app)  # Allow only the React app on localhost:5173
 
 # Connect to MongoDB
 # password = 'sTh4uYbQx72OaClx'
 # uri = "mongodb+srv://bforseth:"+password+"@beanbagcluster.lsads.mongodb.net/?retryWrites=true&w=majority&appName=BeanbagCluster"
 
+# MongoDB connection
 uri = "mongodb+srv://xbriggs:5fnz7AesTp1DYyFx@teamscoredb.gkrjr.mongodb.net/TeamScoreDB?retryWrites=true&w=majority&appName=TeamScoreDB&authSource=admin"
-
-
-# Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi('1'))
 
-# Send a ping to confirm a successful connection
+# Verify MongoDB connection
 try:
     client.admin.command('ping')
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
     print(e)
+    
 # Brandon's db collections
 # db = client["BeanbagData"]
 # teams_collection = db["Team_Data"]
 # scores_collection = db["Score_Data"]
 
-#Xavier's db collections
+# Database collections
 db = client["beanbag_toss"]
 teams_collection = db["teams"]
 scores_collection = db["scores"]
 
-#Team Logic
+# Register Team Route
 @app.route("/register_team", methods=["POST"])
 def register_team():
     if request.method == "OPTIONS":
         return jsonify({"message": "CORS preflight success"}), 200
-    """Register a new team into the database."""
+    
     data = request.json
     team_name = data.get("name")
     if not team_name:
@@ -51,36 +53,61 @@ def register_team():
 
     # Insert team into MongoDB
     teams_collection.insert_one({"name": team_name})
-    # builds skeleton for each team score -> is team_collection necessary?
-    scores_collection.insert_one({"name": team_name, "scores":[]})
+    scores_collection.insert_one({"name": team_name, "scores": []})
     return jsonify({"message": f"Team '{team_name}' registered successfully!"}), 201
 
+# Get Teams Route
 @app.route("/get_teams", methods=["GET"])
 def get_teams():
     if request.method == "OPTIONS":
         return jsonify({"message": "CORS preflight success"}), 200
-    """Retrieve all registered teams."""
+    
+    # Retrieve all registered teams
     teams = list(teams_collection.find({}, {"_id": 0, "name": 1}))
     return jsonify([team["name"] for team in teams]), 200
 
-#Score logic still needs to be figured out 
+# Submit Score Route
 @app.route("/submit_score", methods=["POST"])
 def submit_score():
     if request.method == "OPTIONS":
         return jsonify({"message": "CORS preflight success"}), 200
+    
     data = request.json
     team_name = data.get("name")
     score = data.get("score")
-    scores_collection.update_one({"name":team_name},{"$push":{"scores":score}})
+    
+    # Update scores for the team
+    scores_collection.update_one({"name": team_name}, {"$push": {"scores": score}})
     return jsonify({"message": f"Score of '{score}' added to '{team_name}' successfully!"}), 201
- 
 
-@app.route("/get_scores", methods=["GET", "OPTIONS"])
+# Get Scores Route with statistics
+@app.route("/get_scores", methods=["GET"])
 def get_scores():
     if request.method == "OPTIONS":
         return jsonify({"message": "CORS preflight success"}), 200
-    score_data = list(scores_collection.find({}, {"_id": 0, "name": 1, "scores": 1}))
-    return jsonify(score_data), 200
+    
+    score_entries = list(scores_collection.find({}, {"_id": 0, "name": 1, "scores": 1}))
+    result = []
+    
+    for entry in score_entries:
+        name = entry["name"]
+        scores = entry["scores"]
+        
+        score_counts = Counter(scores)
+        frequency_data = [score_counts.get(i, 0) for i in range(5)]
+        mean_score = np.mean(scores) if scores else 0
+        std_dev = np.std(scores, ddof=1) if len(scores) > 1 else 0
+        
+        result.append({
+            "name": name,
+            "score_frequencies": frequency_data,
+            "mean": mean_score,
+            "standard_deviation": std_dev
+        })
+    
+    sorted_result = sorted(result, key=lambda x: x["mean"])
+    return jsonify(sorted_result[:2]), 200
 
+# Main execution
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)
