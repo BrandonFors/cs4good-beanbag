@@ -24,7 +24,7 @@ try:
     print("Pinged your deployment. You successfully connected to MongoDB!")
 except Exception as e:
     print(e)
-    
+
 # Brandon's db collections
 # db = client["BeanbagData"]
 # teams_collection = db["Team_Data"]
@@ -92,17 +92,18 @@ def get_scores():
     for entry in score_entries:
         name = entry["name"]
         scores = entry["scores"]
-        
+        scores = [int(value) for value in scores]
         score_counts = Counter(scores)
+        print(score_counts)
         frequency_data = [score_counts.get(i, 0) for i in range(5)]
         mean_score = np.mean(scores) if scores else 0
         std_dev = np.std(scores, ddof=1) if len(scores) > 1 else 0
         
         result.append({
-            "name": name,
-            "score_frequencies": frequency_data,
+            "team": name,
+            "freq": frequency_data,
             "mean": mean_score,
-            "standard_deviation": std_dev
+            "stdv": std_dev
         })
     
     sorted_result = sorted(result, key=lambda x: x["mean"])
