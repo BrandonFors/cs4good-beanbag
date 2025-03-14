@@ -1,22 +1,19 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-function ScoreButtons(props){
-
+function ScoreButtons(props) {
   const [curButton, setCurButton] = useState(-1);
 
-  const Buttons = [0,1,2,3,4]
+  const Buttons = [0, 1, 2, 3, 4];
 
+  useEffect(() => {
+    setCurButton(props.selectedRing);
+  }, [props.selectedRing]);
 
-  useEffect(()=>{
-    setCurButton(props.selectedRing)
-  },[props.selectedRing])
-
-  const handleClick = (event)=>{
+  const handleClick = (event) => {
     props.setSelectedRing(event.value);
-  }
+  };
 
-
-  return(
+  return (
     <div className="score-buttons-container">
       <div className="button-header-container">
         <h1>Center</h1>
@@ -24,26 +21,28 @@ function ScoreButtons(props){
         <h1>Outer Ring</h1>
       </div>
       <div className="button-container">
-        {Buttons.map((_,index)=>{
-          return(
-            <button 
-            key = {index}
-            value={index}
-            className={`score-button ${curButton == index ? "selected-button" : ""}`}
-            onClick={(event)=>{handleClick(event.target)}}
+        {Buttons.map((_, index) => {
+          return (
+            <button
+              key={index}
+              value={index}
+              className={`score-button ${
+                curButton == index ? "selected-button" : ""
+              }`}
+              onClick={(event) => {
+                handleClick(event.target);
+              }}
             >
               {index}
             </button>
-          )
+          );
         })}
       </div>
-      <button 
-      className="submit-button"
-      onClick={props.submitScore}
-      >Submit</button>
-
+      <button className="submit-button" onClick={props.submitScore}>
+        Submit
+      </button>
     </div>
-  )
+  );
 }
 
 export default ScoreButtons;

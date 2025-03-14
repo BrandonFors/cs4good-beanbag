@@ -5,7 +5,7 @@ import TeamDropdown from "./TeamDropdown";
 import ScoreButtons from "./ScoreButtons";
 import axios from "axios";
 
-function ScoringPage(){
+function ScoringPage() {
   const [teamList, setTeamList] = useState(["Team 1", "Team 2"]);
   const [selectedTeam, setSelectedTeam] = useState("invalid");
   const [selectedRing, setSelectedRing] = useState(-1);
@@ -25,35 +25,35 @@ function ScoringPage(){
     getTeams();
   }, []);
 
-  const submitScore = async ()=>{
-    if(selectedTeam != "invalid"){
-      if(selectedRing != -1){
+  const submitScore = async () => {
+    if (selectedTeam != "invalid") {
+      if (selectedRing != -1) {
         const data = {
           name: selectedTeam,
-          score: selectedRing
+          score: selectedRing,
         };
-        axios.post(
-          "http://localhost:8080/submit_score",
-          data
-        );
+        axios.post("http://localhost:8080/submit_score", data);
         console.log("Submit");
         setSelectedRing(-1);
-      } 
+      }
     }
-  }
+  };
 
-  return(
+  return (
     <div>
-      <NavBar/>
-      <TeamDropdown teamList = {teamList} selectedTeam = {selectedTeam} setSelectedTeam = {setSelectedTeam}/>
-      <Target selectedRing = {selectedRing} setSelectedRing = {setSelectedRing}/>
-      <ScoreButtons selectedRing = {selectedRing} setSelectedRing = {setSelectedRing} submitScore = {submitScore}/>
-      
-      
-      
+      <NavBar />
+      <TeamDropdown
+        teamList={teamList}
+        selectedTeam={selectedTeam}
+        setSelectedTeam={setSelectedTeam}
+      />
+      <Target selectedRing={selectedRing} setSelectedRing={setSelectedRing} />
+      <ScoreButtons
+        selectedRing={selectedRing}
+        setSelectedRing={setSelectedRing}
+        submitScore={submitScore}
+      />
     </div>
-
   );
-
 }
 export default ScoringPage;

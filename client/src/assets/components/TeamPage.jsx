@@ -17,8 +17,7 @@ function TeamPage() {
     fetchTeamNames();
   }, []);
 
-  const handleRegisterTeam = async ()  => {
-    
+  const handleRegisterTeam = async () => {
     if (!teamName.trim()) {
       setMessage("Team name cannot be empty.");
       return;
@@ -34,11 +33,10 @@ function TeamPage() {
       "http://localhost:8080/register_team",
       data
     );
-    setTeamList((prevValue)=>{
-      return([...prevValue, teamName])
-    })
+    setTeamList((prevValue) => {
+      return [...prevValue, teamName];
+    });
     setTeamName(""); // Clear input
-
   };
 
   return (
@@ -46,23 +44,26 @@ function TeamPage() {
       <NavBar />
       <div className="registerContainer">
         <h1>Register a Team</h1>
-        <input
-          type="text"
-          value={teamName}
-          onChange={(e) => setTeamName(e.target.value)}
-          placeholder="Enter team name"
-        />
-        <button onClick={handleRegisterTeam}>Register</button>
-        <p className="message">{message}</p>
-      </div>
+        <div>
+          <input
+            type="text"
+            value={teamName}
+            onChange={(e) => setTeamName(e.target.value)}
+            placeholder="Enter team name"
+          />
+          <button onClick={handleRegisterTeam}>Register</button>
+        </div>
 
-      <div className="teamList">
-        <h2>Registered Teams</h2>
-        <ul>
-          {teamList.map((team, index) => (
-            <li key={index}>{team}</li>
-          ))}
-        </ul>
+        <p className="message">{message}</p>
+
+        <div className="teamList">
+          <h2>Registered Teams</h2>
+          <ul>
+            {teamList.map((team, index) => (
+              <li key={index}>{team}</li>
+            ))}
+          </ul>
+        </div>
       </div>
     </div>
   );

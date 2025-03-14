@@ -1,5 +1,4 @@
 /* ND color pallet */
-
 /* 
 ND Blue: #0c2340
 Standard Dome Gold: #c99700
@@ -7,8 +6,13 @@ Irish Green: #00843d
  */
 
 /* General Styling */
-body {
+html,
+body,
+#root {
   margin: 0px;
+  height: 100%;
+}
+body {
   background-color: #b0b0b0;
   background-image: url("https://www.transparenttextures.com/patterns/black-felt.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
@@ -42,25 +46,25 @@ body {
 .ring-4 {
   width: 100%;
   height: 100%;
-  background-color: #0C2340;
+  background-color: #0c2340;
 }
 
 .ring-3 {
   width: 80%;
   height: 80%;
-  background-color: #0A2355;
+  background-color: #0a2355;
 }
 
 .ring-2 {
   width: 60%;
   height: 60%;
-  background-color: #06268A;
+  background-color: #06268a;
 }
 
 .ring-1 {
   width: 40%;
   height: 40%;
-  background-color: #042B96;
+  background-color: #042b96;
 }
 
 .ring-0 {
@@ -109,18 +113,16 @@ body {
 }
 
 /* Dropdown Styling */
-
-.team-dropdown-container{
+.team-dropdown-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   margin: 10px 0px;
-
 }
 
 .team-dropdown {
-  font-size: 100px; 
+  font-size: 100px;
   font-weight: bold;
   border: none;
   background: none;
@@ -133,34 +135,30 @@ body {
 }
 
 /* Score Buttons Styling */
-.score-buttons-container{
-  display:flex;
-  flex-direction: column; 
+.score-buttons-container {
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   justify-self: center;
-  gap:10px;
+  gap: 10px;
   width: 400px;
 }
 
-.button-header-container{
+.button-header-container {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
- 
 }
 
-.button-container{
+.button-container {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
-
 }
 
-.button-header-container h1{
+.button-header-container h1 {
   font-size: 20px;
 }
 
@@ -178,15 +176,14 @@ body {
 
 button:hover {
   transform: scale(1.1);
-
 }
 
-.selected-button{
+.selected-button {
   background-color: #c99700;
   font-weight: bold;
 }
 
-.submit-button{
+.submit-button {
   align-self: flex-end;
   padding: 10px 15px;
   margin: 5px;
@@ -199,8 +196,7 @@ button:hover {
   width: auto;
 }
 
-/*Team Page Styling*/ 
-
+/* Team Page Styling */
 /* Container for the Score Page */
 .container {
   padding: 20px;
@@ -303,4 +299,90 @@ button:hover {
 .plusSign {
   color: #c99700;
   font-size: 1.5rem;
+}
+
+.barChart {
+  position: relative;
+  width: 45vw;
+  height: 70vh;
+}
+
+.chart-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.registerContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.teamList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+  /* Reduce the target size for mobile */
+  .target {
+    width: 300px;
+    height: 300px;
+  }
+
+  /* Adjust nav items for smaller screens */
+  .nav-item {
+    font-size: 16px;
+    padding: 15px 20px;
+  }
+
+  /* Reduce dropdown font-size for mobile */
+  .team-dropdown {
+    font-size: 40px;
+    padding: 5px 10px;
+  }
+
+  /* Score Buttons container becomes narrower */
+  .score-buttons-container {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  /* Adjust font sizes for buttons */
+  .score-button,
+  .submit-button {
+    font-size: 1.2rem;
+  }
+
+  /* Team name font size */
+  .teamName {
+    font-size: 2rem;
+  }
+
+  /* Grid container for score options becomes single-column */
+  .gridContainer {
+    grid-template-columns: 1fr;
+  }
+
+  /* Chart container stacks charts vertically */
+  .chart-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .barChart {
+    position: relative;
+    width: 95vw;
+    height: 45vh;
+  }
+
+  .chart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
 }

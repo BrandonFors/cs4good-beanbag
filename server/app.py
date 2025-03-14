@@ -8,7 +8,7 @@ import numpy as np
 app = Flask(__name__)
 
 # CORS configuration
-CORS(app)  # Allow only the React app on localhost:5173
+CORS(app, resources={r"/*": {"origins": "*"}})
 
 # Connect to MongoDB
 # password = 'sTh4uYbQx72OaClx'

@@ -1,25 +1,22 @@
-import React, {useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 
 const TeamDropdown = (props) => {
+  const [currentTeam, setCurrentTeam] = useState();
 
-  const [currentTeam , setCurrentTeam] = useState();
-
-  const handleChange = (event)=>{
+  const handleChange = (event) => {
     props.setSelectedTeam(event.value);
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     setCurrentTeam(props.selectedTeam);
-  },[props.selectedTeam])
-
- 
+  }, [props.selectedTeam]);
 
   return (
     <div className="team-dropdown-container">
-      <select 
-      className="team-dropdown" 
-      onChange={(event) =>handleChange(event.target)}
-      value={currentTeam} 
+      <select
+        className="team-dropdown"
+        onChange={(event) => handleChange(event.target)}
+        value={currentTeam}
       >
         <option value="invalid">Choose A Team</option>
         {props.teamList.map((name, index) => (
@@ -28,9 +25,7 @@ const TeamDropdown = (props) => {
           </option>
         ))}
       </select>
-
     </div>
-    
   );
 };
 
