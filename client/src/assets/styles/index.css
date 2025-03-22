@@ -77,9 +77,6 @@ body {
   background-color: #c99700;
 }
 
-.ring:hover {
-  transform: scale(1.1);
-}
 
 /* NavBar styling */
 .nav-container {
@@ -329,8 +326,8 @@ button:hover {
 @media (max-width: 600px) {
   /* Reduce the target size for mobile */
   .target {
-    width: 400px;
-    height: 400px;
+    width: 90vw;
+    height: 90vw;
   }
 
   /* Adjust nav items for smaller screens */
