@@ -90,7 +90,7 @@ def get_scores():
     for entry in score_entries:
         name = entry["name"]
         scores = entry["scores"]
-        scores = [int(value) for value in scores]
+        scores = [int(value) for value in scores if value.strip().isdigit()]
         score_counts = Counter(scores)
         print(score_counts)
         frequency_data = [score_counts.get(i, 0) for i in range(5)]
