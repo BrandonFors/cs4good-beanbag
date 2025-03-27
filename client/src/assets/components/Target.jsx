@@ -23,7 +23,9 @@ function Target(props) {
               highlightedRing == item ? "selected-ring" : ""
             }`}
             onClick={(event) => handleClick(event.target)}
-          />
+          >
+            <h2>{item}</h2>
+          </div>
         ))}
       </div>
     </div>

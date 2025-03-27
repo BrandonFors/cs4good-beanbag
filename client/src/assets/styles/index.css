@@ -36,11 +36,20 @@ body {
 }
 
 .ring {
+  font-weight: bold;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   position: absolute;
   border-radius: 50%;
   border: 5px solid white;
   cursor: pointer;
   transition: transform 0.2s ease-in-out;
+}
+
+.ring h2{
+  margin-top: 0px;
 }
 
 .ring-4 {
