@@ -13,6 +13,10 @@ const navItems = [
     title: "Team",
     route: "/team",
   },
+  {
+    title: "Admin",
+    route: "/admin",
+  }
 ];
 
 function NavBar() {

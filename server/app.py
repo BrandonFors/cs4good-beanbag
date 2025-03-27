@@ -109,6 +109,18 @@ def get_scores():
     sorted_result = sorted(result, key=lambda x: x["mean"])
     return jsonify(sorted_result[:2]), 200
 
+@app.route("/delete_team", methods=["POST"])
+def delete_team():
+  if request.method == "OPTIONS":
+    return jsonify({"message": "CORS preflight success"}), 200
+  data = request.json
+  team_name = data.get("name")
+  teams_collection.delete_one({"name":team_name}, {})
+  scores_collection.delete_one({"name":team_name}, {})
+
+  return jsonify("Deleted"), 200
+
+
 # Main execution
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8080, debug=True)

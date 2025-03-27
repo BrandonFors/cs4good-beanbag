@@ -322,6 +322,61 @@ button:hover {
   align-items: flex-start;
 }
 
+.delete-element{
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+
+}
+.delete-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(31, 41, 55, 0.5); /* bg-gray-800 with opacity-50 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 50;
+}
+
+.delete-container{
+  background-color: #f5ba13;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 20px;
+  
+}
+.delete-header{
+  font-weight: 200;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.close-button {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close-button img {
+  width: 2rem; 
+  height: 2rem; 
+}
+
+.delete-container input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
 /* Responsive Styles */
 @media (max-width: 600px) {
   /* Reduce the target size for mobile */
@@ -383,3 +438,4 @@ button:hover {
     gap: 20px;
   }
 }
+
