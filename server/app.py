@@ -4,19 +4,17 @@ from pymongo.server_api import ServerApi
 from flask_cors import CORS
 from collections import Counter
 import numpy as np
-
+import os
 app = Flask(__name__)
 
 # CORS configuration
 CORS(app, resources={r"/*": {"origins": "*"}})
 
-# Connect to MongoDB
-# password = 'sTh4uYbQx72OaClx'
-# uri = "mongodb+srv://bforseth:"+password+"@beanbagcluster.lsads.mongodb.net/?retryWrites=true&w=majority&appName=BeanbagCluster"
+MONGO_URI = os.getenv("MONGO_URI")
 
-# MongoDB connection
-uri = "mongodb+srv://xbriggs:5fnz7AesTp1DYyFx@teamscoredb.gkrjr.mongodb.net/TeamScoreDB?retryWrites=true&w=majority&appName=TeamScoreDB&authSource=admin"
-client = MongoClient(uri, server_api=ServerApi('1'))
+client = MongoClient(MONGO_URI, server_api=ServerApi('1'))
+
+# client = MongoClient(uri, server_api=ServerApi('1'))
 
 # Verify MongoDB connection
 try:
