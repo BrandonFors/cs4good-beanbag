@@ -12,7 +12,7 @@ function TeamManagePage() {
 
   useEffect(() => {
     const fetchTeamNames = async () => {
-      const response = await axios.get("http://localhost:8080/get_teams");
+      const response = await axios.get("http://cs4good-beanbag.onrender.com/get_teams");
       setTeamList(response.data);
     };
     fetchTeamNames();
@@ -33,7 +33,7 @@ function TeamManagePage() {
       name: name,
     };
     const response = await axios.post(
-      "http://localhost:8080/delete_team",
+      "http://cs4good-beanbag.onrender.com/delete_team",
       data
     );
     setTeamList((prevValue) => prevValue.filter((team) => team !== name));
