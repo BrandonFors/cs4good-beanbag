@@ -11,7 +11,7 @@ function TeamPage() {
   // Fetch existing teams on load
   useEffect(() => {
     const fetchTeamNames = async () => {
-      const response = await axios.get("https://localhost:8080/get_teams");
+      const response = await axios.get("https://cs4good-beanbag.onrender.com/get_teams");
       setTeamList(response.data);
     };
     fetchTeamNames();
