@@ -30,7 +30,7 @@ function TeamPage() {
       name: teamName,
     };
     const response = await axios.post(
-      "http://localhost:8080/register_team",
+      "https://cs4good-beanbag.onrender.com/register_team",
       data
     );
     setTeamList((prevValue) => {
