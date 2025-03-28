@@ -11,6 +11,7 @@ function TeamManagePage() {
   const [teamList, setTeamList] = useState([]); // List of registered teams
 
   useEffect(() => {
+    
     const fetchTeamNames = async () => {
       const response = await axios.get("https://cs4good-beanbag.onrender.com/get_teams");
       setTeamList(response.data);

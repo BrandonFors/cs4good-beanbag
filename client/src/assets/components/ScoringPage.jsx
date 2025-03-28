@@ -6,7 +6,8 @@ import ScoreButtons from "./ScoreButtons";
 import axios from "axios";
 
 function ScoringPage() {
-  const [teamList, setTeamList] = useState(["Team 1", "Team 2"]);
+  const [submitting, setSubmitting] = useState(false);
+  const [teamList, setTeamList] = useState([]);
   const [selectedTeam, setSelectedTeam] = useState("invalid");
   const [selectedRing, setSelectedRing] = useState(-1);
 
@@ -28,13 +29,18 @@ function ScoringPage() {
   const submitScore = async () => {
     if (selectedTeam != "invalid") {
       if (selectedRing != -1) {
-        const data = {
-          name: selectedTeam,
-          score: selectedRing,
-        };
-        axios.post("https://cs4good-beanbag.onrender.com/submit_score", data);
-        console.log("Submit");
-        setSelectedRing(-1);
+        setSubmitting(true);
+        try{
+          const data = {
+            name: selectedTeam,
+            score: selectedRing,
+          };
+          axios.post("https://cs4good-beanbag.onrender.com/submit_score", data);
+          console.log("Submit");
+        }finally{
+          setSelectedRing(-1);
+          setSubmitting(false);
+        }
       }
     }
   };
@@ -52,6 +58,7 @@ function ScoringPage() {
         selectedRing={selectedRing}
         setSelectedRing={setSelectedRing}
         submitScore={submitScore}
+        submitting = {submitting}
       />
     </div>
   );
