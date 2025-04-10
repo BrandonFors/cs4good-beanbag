@@ -102,7 +102,7 @@ function ChartPage() {
       return new Chart(ctx, {
         type: "bar",
         data: {
-          labels: ["Ring 0", "Ring 1", "Ring 2", "Ring 3", "Ring 4"],
+          labels: ["Ring 0", "Ring 1", "Ring 2", "Ring 3", "Ring 4", "Ring 5"],
           datasets: [
             {
               label: "Frequency",
@@ -151,9 +151,13 @@ function ChartPage() {
       <div className="chart-container">
         {data.map((el, index) => (
           <div key={index}>
-            <h2>{el.team}</h2>
+            <h1>{el.team}</h1>
             <div className="barChart">
               <canvas id={`chart-${index}`} />
+            </div>
+            <div className="stats">
+              <h2>Average: {(el.mean).toFixed(2)}</h2>
+              <h2>Spread: {(el.stdv).toFixed(2)}</h2>
             </div>
           </div>
         ))}

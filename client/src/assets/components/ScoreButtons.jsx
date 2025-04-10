@@ -3,7 +3,7 @@ import axios from "axios";
 function ScoreButtons(props) {
   const [curButton, setCurButton] = useState(-1);
   const [submitDis, setSubmitDis] = useState(false);
-  const Buttons = [0, 1, 2, 3, 4];
+  const Buttons = [0, 1, 2, 3, 4, 5];
 
   useEffect(() => {
     setCurButton(props.selectedRing);

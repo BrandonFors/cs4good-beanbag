@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 function Target(props) {
-  const rings = [4, 3, 2, 1, 0];
+  const rings = [5, 4, 3, 2, 1, 0];
 
   const [highlightedRing, setHighlightedRing] = useState(-1);
   const handleClick = (ring) => {

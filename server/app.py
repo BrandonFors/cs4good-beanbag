@@ -93,7 +93,7 @@ def get_scores():
         scores = [int(value) for value in scores if value.strip().isdigit()]
         score_counts = Counter(scores)
         print(score_counts)
-        frequency_data = [score_counts.get(i, 0) for i in range(5)]
+        frequency_data = [score_counts.get(i, 0) for i in range(6)]
         mean_score = np.mean(scores) if scores else 0
         std_dev = np.std(scores, ddof=1) if len(scores) > 1 else 0
         
