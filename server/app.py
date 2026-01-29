@@ -4,11 +4,14 @@ from pymongo.server_api import ServerApi
 from flask_cors import CORS
 from collections import Counter
 import numpy as np
+from dotenv import load_dotenv
 import os
 app = Flask(__name__)
 
 # CORS configuration
 CORS(app, resources={r"/*": {"origins": "*"}})
+
+load_dotenv(override=False)
 
 MONGO_URI = os.getenv("MONGO_URI")
 
