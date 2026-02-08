@@ -16,7 +16,7 @@ function DeleteOverlay(props) {
             <img src="/icons/close.svg" />
           </a>
         </div>
-        <button onClick={()=>{props.handleConfirm(textContent)}}>
+        <button onClick={()=>{props.handleConfirm(props.teamName)}}>
           Yes
         </button>
       </div>
