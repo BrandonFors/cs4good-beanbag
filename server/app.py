@@ -104,8 +104,7 @@ def get_scores():
             "stdv": std_dev
         })
     
-    sorted_result = sorted(result, key=lambda x: x["mean"])
-    return jsonify(sorted_result[:2]), 200
+    return jsonify(result[:2]), 200
 
 @app.route("/delete_team", methods=["POST"])
 def delete_team():

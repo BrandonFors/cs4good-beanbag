@@ -4,3 +4,4 @@ pymongo
 numpy
 gunicorn
 dnspython
+pytest
