@@ -17,6 +17,9 @@
 
 <h1>Beanbag Statistics Lesson</h1>
 <h3>A Project for the Notre Dame Lucy Civic Innovation Lab</h3>
+
+🔗 **Live Site:** [https://cs4good-beanbag-three.vercel.app/](https://cs4good-beanbag-three.vercel.app/)
+
 </div>
 
 
