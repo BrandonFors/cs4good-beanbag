@@ -48,7 +48,7 @@
 ### Top contributors:
 
 <a href="https://github.com/slayer1371/cs4good-beanbag/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=slayer1371/cs4good-beanbag" alt="contrib.rocks image" />
+  <img src="https://contrib.rocks/image?repo=BrandonFors/cs4good-beanbag" alt="contrib.rocks image" />
 </a>
 
 
@@ -89,7 +89,7 @@ Professor Jay Brockman - [Profile](https://lucyinstitute.nd.edu/people/the-lucy-
 
 Notre Dame Computer Science for Good - [Club](https://sites.nd.edu/cs4good/)  - cs4good@nd.edu
 
-Project Link: [https://github.com/slayer1371/cs4good-beanbag](https://github.com/slayer1371/cs4good-beanbag)
+Project Link: [[https://github.com/BrandonFors/cs4good-beanbag](https://github.com/BrandonFors/cs4good-beanbag)]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
