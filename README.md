@@ -1,4 +1,3 @@
-
 <div align="center">
   
 <a> [![Contributors][contributors-shield]][contributors-url] </a>
@@ -27,7 +26,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[![Product Name Screen Shot][product-screenshot]](https://github.com/BrandonFors/cs4good-beanbag)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -47,7 +46,7 @@
 
 ### Top contributors:
 
-<a href="https://github.com/slayer1371/cs4good-beanbag/graphs/contributors">
+<a href="https://github.com/BrandonFors/cs4good-beanbag/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=BrandonFors/cs4good-beanbag" alt="contrib.rocks image" />
 </a>
 
@@ -98,16 +97,16 @@ Project Link: [[https://github.com/BrandonFors/cs4good-beanbag](https://github.c
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/slayer1371/cs4good-beanbag.svg?style=for-the-badge
-[contributors-url]: https://github.com/slayer1371/cs4good-beanbag/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/slayer1371/cs4good-beanbag?style=for-the-badge
-[forks-url]: https://github.com/slayer1371/cs4good-beanbag/network/members
-[stars-shield]: https://img.shields.io/github/stars/slayer1371/cs4good-beanbag.svg?style=for-the-badge
-[stars-url]: https://github.com/slayer1371/cs4good-beanbag/stargazers
-[issues-shield]: https://img.shields.io/github/issues/slayer1371/cs4good-beanbag.svg?style=for-the-badge
-[issues-url]: https://github.com/slayer1371/cs4good-beanbag/issues
-[license-shield]: https://img.shields.io/github/license/slayer1371/cs4good-beanbag.svg?style=for-the-badge
-[license-url]: https://github.com/slayer1371/cs4good-beanbag/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/BrandonFors/cs4good-beanbag.svg?style=for-the-badge
+[contributors-url]: https://github.com/BrandonFors/cs4good-beanbag/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/BrandonFors/cs4good-beanbag?style=for-the-badge
+[forks-url]: https://github.com/BrandonFors/cs4good-beanbag/network/members
+[stars-shield]: https://img.shields.io/github/stars/BrandonFors/cs4good-beanbag.svg?style=for-the-badge
+[stars-url]: https://github.com/BrandonFors/cs4good-beanbag/stargazers
+[issues-shield]: https://img.shields.io/github/issues/BrandonFors/cs4good-beanbag.svg?style=for-the-badge
+[issues-url]: https://github.com/BrandonFors/cs4good-beanbag/issues
+[license-shield]: https://img.shields.io/github/license/BrandonFors/cs4good-beanbag.svg?style=for-the-badge
+[license-url]: https://github.com/BrandonFors/cs4good-beanbag/blob/main/LICENSE.txt
 [product-screenshot]: images/screenshot.png
 [React.js]: https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=react&logoColor=white
 [React-url]: https://reactjs.org/
