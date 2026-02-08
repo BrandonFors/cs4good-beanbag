@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import NavItem from "./NavItem";
 const navItems = [
   {
-    title: "Scoring",
-    route: "/",
+    title: "Team",
+    route: "/team",
   },
   {
     title: "Charts",
     route: "/charts",
   },
   {
-    title: "Team",
-    route: "/team",
+    title: "Scoring",
+    route: "/",
   },
   {
     title: "Admin",
