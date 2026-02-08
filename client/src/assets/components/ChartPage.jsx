@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import NavBar from "./NavBar";
 import Chart from "chart.js/auto";
 import axios from "axios";
@@ -7,6 +8,11 @@ function ChartPage() {
   const [data, setData] = useState([]);
   const chartRefs = useRef([]);
   const colors = ["#0C2340", "#0A2355", "#06268A", "#042B96"];
+  const navigate = useNavigate();
+
+  const handleSeeCalculations = (index) => {
+    navigate(`/charts/calculations/${index}`);
+  };
 
   useEffect(() => {
     async function getData() {
@@ -150,7 +156,7 @@ function ChartPage() {
       <NavBar />
       <div className="chart-container">
         {data.map((el, index) => (
-          <div key={index}>
+          <div key={index} className="chart-item">
             <h1>{el.team}</h1>
             <div className="barChart">
               <canvas id={`chart-${index}`} />
@@ -159,6 +165,12 @@ function ChartPage() {
               <h2>Average: {(el.mean).toFixed(2)}</h2>
               <h2>Spread: {(el.stdv).toFixed(2)}</h2>
             </div>
+            <button 
+              className="see-calculations-button"
+              onClick={() => handleSeeCalculations(index)}
+            >
+              See Average Calculations
+            </button>
           </div>
         ))}
       </div>
