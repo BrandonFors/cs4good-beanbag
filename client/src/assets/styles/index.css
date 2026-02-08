@@ -398,6 +398,11 @@ button:hover {
   gap: 10px;
 }
 
+.stats h2 {
+  font-size: 2.5rem;
+  margin: 0;
+}
+
 /* Responsive Styles */
 @media (max-width: 600px) {
   /* Reduce the target size for mobile */
